@@ -30,19 +30,19 @@ pipeline {
 
                     docker.build(
                         "${ECR_REPOSITORY}:${IMAGE_TAG}",
-                        "--build-arg NODE_ENV=${NODE_ENV} " +
-                        "--build-arg HOST=${HOST} " +
-                        "--build-arg PORT=${APP_PORT} " +
-                        "--build-arg APP_KEYS=${appKeys} " +
-                        "--build-arg API_TOKEN_SALT=${apiTokenSalt} " +
-                        "--build-arg ADMIN_JWT_SECRET=${adminJwtSecret} " +
-                        "--build-arg TRANSFER_TOKEN_SALT=${transferTokenSalt} " +
-                        "--build-arg DATABASE_CLIENT=${DATABASE_CLIENT} " +
-                        "--build-arg DATABASE_HOST=${databaseHost} " +
-                        "--build-arg DATABASE_PORT=${DATABASE_PORT} " +
-                        "--build-arg DATABASE_USERNAME=${databaseUsername} " +
-                        "--build-arg DATABASE_PASSWORD=${databasePassword} " +
-                        "--build-arg DATABASE_SSL=${DATABASE_SSL} " +
+                        "--build-arg NODE_ENV=\"${NODE_ENV}\" " +
+                        "--build-arg HOST=\"${HOST}\" " +
+                        "--build-arg PORT=\"${APP_PORT}\" " +
+                        "--build-arg APP_KEYS=\"${appKeys}\" " +
+                        "--build-arg API_TOKEN_SALT=\"${apiTokenSalt}\" " +
+                        "--build-arg ADMIN_JWT_SECRET=\"${adminJwtSecret}\" " +
+                        "--build-arg TRANSFER_TOKEN_SALT=\"${transferTokenSalt}\" " +
+                        "--build-arg DATABASE_CLIENT=\"${DATABASE_CLIENT}\" " +
+                        "--build-arg DATABASE_HOST=\"${databaseHost}\" " +
+                        "--build-arg DATABASE_PORT=\"${DATABASE_PORT}\" " +
+                        "--build-arg DATABASE_USERNAME=\"${databaseUsername}\" " +
+                        "--build-arg DATABASE_PASSWORD=\"${databasePassword}\" " +
+                        "--build-arg DATABASE_SSL=\"${DATABASE_SSL}\" " +
                         "-f Dockerfile ."
                     )
                 }
