@@ -14,34 +14,35 @@ pipeline {
         EC2_HOST = '13.247.120.237'
         APP_PORT = '4000' 
         SSH_USER = 'ubuntu'
+        APP_KEYS = credentials('app-keys-oneedo-crm')
+        API_TOKEN_SALT = credentials('api-token-salt-oneedo-crm')
+        ADMIN_JWT_SECRET = credentials('admin-jwt-secret-oneedo-crm')
+        TRANSFER_TOKEN_SALT = credentials('transfer-token-salt-oneedo-crm')
+        DATABASE_HOST = credentials('database-host-oneedo-crm')
+        DATABASE_USERNAME = credentials('database-username-oneedo-crm')
+        DATABASE_PASSWORD = credentials('database-password-oneedo-crm')
     }
 
     stages {
         stage('Build') {
             steps {
                 script {
-                    def appKeys = credentials('app-keys-oneedo-crm')
-                    def apiTokenSalt = credentials('api-token-salt-oneedo-crm')
-                    def adminJwtSecret = credentials('admin-jwt-secret-oneedo-crm')
-                    def transferTokenSalt = credentials('transfer-token-salt-oneedo-crm')
-                    def databaseHost = credentials('database-host-oneedo-crm')
-                    def databaseUsername = credentials('database-username-oneedo-crm')
-                    def databasePassword = credentials('database-password-oneedo-crm')
+                   
 
                     app = docker.build(
                         "${ECR_REPOSITORY}:${IMAGE_TAG}",
                         "--build-arg NODE_ENV=\"${NODE_ENV}\" " +
                         "--build-arg HOST=\"${HOST}\" " +
                         "--build-arg PORT=\"${APP_PORT}\" " +
-                        "--build-arg APP_KEYS=\"${appKeys}\" " +
-                        "--build-arg API_TOKEN_SALT=\"${apiTokenSalt}\" " +
-                        "--build-arg ADMIN_JWT_SECRET=\"${adminJwtSecret}\" " +
-                        "--build-arg TRANSFER_TOKEN_SALT=\"${transferTokenSalt}\" " +
+                        "--build-arg APP_KEYS=\"${APP_KEYS}\" " +
+                        "--build-arg API_TOKEN_SALT=\"${API_TOKEN_SALT}\" " +
+                        "--build-arg ADMIN_JWT_SECRET=\"${ADMIN_JWT_SECRET}\" " +
+                        "--build-arg TRANSFER_TOKEN_SALT=\"${TRANSFER_TOKEN_SALT}\" " +
                         "--build-arg DATABASE_CLIENT=\"${DATABASE_CLIENT}\" " +
-                        "--build-arg DATABASE_HOST=\"${databaseHost}\" " +
+                        "--build-arg DATABASE_HOST=\"${DATABASE_HOST}\" " +
                         "--build-arg DATABASE_PORT=\"${DATABASE_PORT}\" " +
-                        "--build-arg DATABASE_USERNAME=\"${databaseUsername}\" " +
-                        "--build-arg DATABASE_PASSWORD=\"${databasePassword}\" " +
+                        "--build-arg DATABASE_USERNAME=\"${DATABASE_USERNAME}\" " +
+                        "--build-arg DATABASE_PASSWORD=\"${DATABASE_PASSWORD}\" " +
                         "--build-arg DATABASE_SSL=\"${DATABASE_SSL}\" " +
                         "-f Dockerfile ."
                     )
