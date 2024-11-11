@@ -12,7 +12,7 @@ pipeline {
         AWS_ACCOUNT_ID = '879210190257'
         IMAGE_TAG = 'oneedocrm'
         EC2_HOST = '13.247.120.237'
-        APP_PORT = '3000' 
+        APP_PORT = '4000' 
         SSH_USER = 'ubuntu'
     }
 
@@ -74,7 +74,6 @@ pipeline {
 
                             # Run the new container
                             docker run -d --name ${IMAGE_TAG} -p ${APP_PORT}:${APP_PORT} ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}
-                        EOF
                     """
                 }
             }
