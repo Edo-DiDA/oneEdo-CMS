@@ -28,7 +28,7 @@ pipeline {
                     def databaseUsername = credentials('database-username-oneedo-crm')
                     def databasePassword = credentials('database-password-oneedo-crm')
 
-                    docker.build(
+                    app = docker.build(
                         "${ECR_REPOSITORY}:${IMAGE_TAG}",
                         "--build-arg NODE_ENV=\"${NODE_ENV}\" " +
                         "--build-arg HOST=\"${HOST}\" " +
@@ -42,7 +42,8 @@ pipeline {
                         "--build-arg DATABASE_PORT=\"${DATABASE_PORT}\" " +
                         "--build-arg DATABASE_USERNAME=\"${databaseUsername}\" " +
                         "--build-arg DATABASE_PASSWORD=\"${databasePassword}\" " +
-                        "--build-arg DATABASE_SSL=\"${DATABASE_SSL}\""
+                        "--build-arg DATABASE_SSL=\"${DATABASE_SSL}\" " +
+                        "-f Dockerfile ."
                     )
                 }
             }
