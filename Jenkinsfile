@@ -53,7 +53,7 @@ pipeline {
             steps {
                 script{
                     docker.withRegistry("https://${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com") {
-                        app.push("${env.BUILD_NUMBER}")
+                        app.push("${IMAGE_TAG}-${env.BUILD_NUMBER}")
                         app.push("${IMAGE_TAG}")
                     }
                 }
