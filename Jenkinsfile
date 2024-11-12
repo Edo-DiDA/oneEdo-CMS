@@ -14,6 +14,7 @@ pipeline {
         EC2_HOST = '13.247.120.237'
         APP_PORT = '4000' 
         SSH_USER = 'ubuntu'
+        BROWSER = 'false'
         APP_KEYS = credentials('app-keys-oneedo-crm')
         API_TOKEN_SALT = credentials('api-token-salt-oneedo-crm')
         ADMIN_JWT_SECRET = credentials('admin-jwt-secret-oneedo-crm')
@@ -21,6 +22,7 @@ pipeline {
         DATABASE_HOST = credentials('database-host-oneedo-crm')
         DATABASE_USERNAME = credentials('database-username-oneedo-crm')
         DATABASE_PASSWORD = credentials('database-password-oneedo-crm')
+        JWT_SECRET = credentials('jwt-secret-oneedo-crm')
     }
 
     stages {
@@ -44,6 +46,8 @@ pipeline {
                         "--build-arg DATABASE_USERNAME=\"${DATABASE_USERNAME}\" " +
                         "--build-arg DATABASE_PASSWORD=\"${DATABASE_PASSWORD}\" " +
                         "--build-arg DATABASE_SSL=\"${DATABASE_SSL}\" " +
+                        "--build-arg JWT_SECRET=\"${JWT_SECRET}\" " +
+                        "--build-arg BROWSER=\"${BROWSER}\" " +
                         "-f Dockerfile ."
                     )
                 }
