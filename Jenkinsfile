@@ -6,7 +6,7 @@ pipeline {
         HOST = '0.0.0.0'
         DATABASE_CLIENT = 'postgres'
         DATABASE_PORT = '5432'
-        DATABASE_SSL = 'false'
+        DATABASE_SSL = 'true'
         AWS_REGION = 'af-south-1'
         ECR_REPOSITORY = 'edo-prototype-default' 
         AWS_ACCOUNT_ID = '879210190257'
