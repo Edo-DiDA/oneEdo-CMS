@@ -29,7 +29,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                   
+                    // Remove any dangling images
+                    sh 'docker image prune -f'
 
                     app = docker.build(
                         "${ECR_REPOSITORY}:${IMAGE_TAG}",
@@ -70,6 +71,9 @@ pipeline {
                 sshagent(credentials: ['ssh-credentials-1']) {
                     sh """
                         ssh -o StrictHostKeyChecking=no ${SSH_USER}@${EC2_HOST} << EOF
+                            # Clean up dagling images
+                            docker image prune -f
+
                             # Pull the latest image
                             docker pull ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}
 
