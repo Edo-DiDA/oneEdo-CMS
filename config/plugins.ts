@@ -5,7 +5,7 @@ export default ({ env }) => ({
       providerOptions: {
         region: env("AWS_REGION", "af-south-1"),
         params: {
-          ACL: env("AWS_ACL"),
+          ACL: env("AWS_ACL", "private"),
           signedUrlExpires: env("AWS_SIGNED_URL_EXPIRES", 15 * 6000),
           Bucket: env("AWS_BUCKET", "pdoprototypes-edo-prototype-storage1"),
         },
