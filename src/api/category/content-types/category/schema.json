@@ -19,12 +19,6 @@
       "type": "uid",
       "targetField": "name"
     },
-    "articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
-      "mappedBy": "category"
-    },
     "description": {
       "type": "text"
     },
@@ -36,6 +30,16 @@
     "featured": {
       "type": "boolean",
       "default": false
+    },
+    "tier": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   }
 }

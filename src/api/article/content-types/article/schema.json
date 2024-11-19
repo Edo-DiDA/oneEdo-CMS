@@ -21,17 +21,14 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "unique": true
     },
     "cover": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ]
+      "allowedTypes": ["images", "files", "videos"]
     },
     "author": {
       "type": "relation",
@@ -41,22 +38,16 @@
     },
     "category": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "articles"
-    },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": [
-        "shared.media",
-        "shared.quote",
-        "shared.rich-text",
-        "shared.slider"
-      ]
+      "relation": "oneToOne",
+      "target": "api::category.category"
     },
     "featured": {
       "type": "boolean",
       "default": false
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
     }
   }
 }
