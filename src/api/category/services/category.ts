@@ -19,7 +19,12 @@ export default factories.createCoreService(
         return null;
       }
 
-      return res;
+      return {
+        ...res,
+        keywords: res.keywords
+          ? res.keywords.split(",").map((keyword: string) => keyword.trim())
+          : [],
+      };
     },
   })
 );
