@@ -28,7 +28,11 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "author": {
       "type": "relation",
@@ -48,6 +52,12 @@
     "content": {
       "type": "richtext",
       "required": true
+    },
+    "breadcrumbs": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.service-page"
+      ]
     }
   }
 }

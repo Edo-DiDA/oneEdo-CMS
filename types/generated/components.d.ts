@@ -1,75 +1,32 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
-  info: {
-    displayName: 'Media';
-    icon: 'file-video';
-  };
-  attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-  };
-}
-
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-  };
-  attributes: {
-    body: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
+export interface SharedArticles extends Struct.ComponentSchema {
+  collectionName: 'components_shared_articles';
   info: {
     description: '';
-    displayName: 'Rich text';
-    icon: 'align-justify';
+    displayName: 'article';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
   };
 }
 
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
+export interface SharedServicePage extends Struct.ComponentSchema {
+  collectionName: 'components_shared_service_pages';
   info: {
     description: '';
-    displayName: 'Seo';
-    icon: 'allergies';
-    name: 'Seo';
+    displayName: 'Service Page';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
-  };
-}
-
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
-  info: {
-    description: '';
-    displayName: 'Slider';
-    icon: 'address-book';
-  };
-  attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    page: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.media': SharedMedia;
-      'shared.quote': SharedQuote;
-      'shared.rich-text': SharedRichText;
-      'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
+      'shared.articles': SharedArticles;
+      'shared.service-page': SharedServicePage;
     }
   }
 }

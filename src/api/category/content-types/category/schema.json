@@ -31,15 +31,21 @@
       "type": "boolean",
       "default": false
     },
-    "tier": {
-      "type": "integer",
-      "required": true,
-      "default": 0
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.service-page",
+        "shared.articles"
+      ]
     },
-    "parent": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::category.category"
+    "keywords": {
+      "type": "text"
+    },
+    "breadcrumbs": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.service-page"
+      ]
     }
   }
 }

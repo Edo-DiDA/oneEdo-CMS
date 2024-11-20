@@ -3,7 +3,6 @@
  */
 
 import { factories } from "@strapi/strapi";
-import { getRelationChain } from "./getCategoryChain";
 
 export default factories.createCoreService(
   "api::article.article",
@@ -13,9 +12,6 @@ export default factories.createCoreService(
         filters: {
           $or: [{ documentId }, { slug: documentId }],
         },
-        populate: {
-          category: true,
-        },
         ...this.getFetchParams(params),
       })) as any;
 
@@ -23,17 +19,7 @@ export default factories.createCoreService(
         return null;
       }
 
-      const breadcrumbs = await getRelationChain(
-        strapi,
-        res.category,
-        "api::category.category",
-        "parent"
-      );
-
-      return {
-        ...res,
-        breadcrumbs,
-      };
+      return res;
     },
   })
 );

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_service_pages",
+  "info": {
+    "displayName": "Service Page",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    }
+  }
+}
