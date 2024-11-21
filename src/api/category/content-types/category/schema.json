@@ -35,17 +35,18 @@
       "type": "dynamiczone",
       "components": [
         "shared.service-page",
-        "shared.articles"
+        "shared.article"
       ]
     },
-    "keywords": {
-      "type": "text"
+    "popularsuggestion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.popular-suggestion"
     },
     "breadcrumbs": {
-      "type": "dynamiczone",
-      "components": [
-        "shared.service-page"
-      ]
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.service-page"
     }
   }
 }

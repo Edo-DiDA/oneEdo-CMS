@@ -1,12 +1,15 @@
 {
-  "collectionName": "components_shared_articles",
+  "collectionName": "components_shared_popular_suggestions",
   "info": {
-    "displayName": "article",
+    "displayName": "Popular Suggestion",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "article": {
+    "Title": {
+      "type": "string"
+    },
+    "Page": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::article.article"
