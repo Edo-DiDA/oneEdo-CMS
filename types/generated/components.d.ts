@@ -10,16 +10,6 @@ export interface SharedArticle extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedArticles extends Struct.ComponentSchema {
-  collectionName: 'components_shared_article';
-  info: {
-    displayName: 'Article';
-  };
-  attributes: {
-    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
-  };
-}
-
 export interface SharedPopularSuggestion extends Struct.ComponentSchema {
   collectionName: 'components_shared_popular_suggestions';
   info: {
@@ -47,7 +37,6 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.article': SharedArticle;
-      'shared.articles': SharedArticles;
       'shared.popular-suggestion': SharedPopularSuggestion;
       'shared.service-page': SharedServicePage;
     }

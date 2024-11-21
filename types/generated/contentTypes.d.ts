@@ -420,9 +420,6 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<
-      ['shared.service-page', 'shared.article']
-    >;
     breadcrumbs: Schema.Attribute.Component<'shared.service-page', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -444,7 +441,11 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       true
     >;
     publishedAt: Schema.Attribute.DateTime;
+    shortDescription: Schema.Attribute.Text;
     slug: Schema.Attribute.UID<'name'>;
+    submenus: Schema.Attribute.DynamicZone<
+      ['shared.service-page', 'shared.article']
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
