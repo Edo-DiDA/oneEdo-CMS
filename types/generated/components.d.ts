@@ -17,8 +17,8 @@ export interface SharedPopularSuggestion extends Struct.ComponentSchema {
     displayName: 'Popular Suggestion';
   };
   attributes: {
-    Page: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
-    Title: Schema.Attribute.String;
+    page: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
+    title: Schema.Attribute.String;
   };
 }
 

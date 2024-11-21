@@ -6,10 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Page": {
+    "page": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::article.article"
