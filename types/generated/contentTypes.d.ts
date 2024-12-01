@@ -399,12 +399,15 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'api::article.article'
     > &
       Schema.Attribute.Private;
+    onthispage: Schema.Attribute.Component<'shared.text', true>;
     publishedAt: Schema.Attribute.DateTime;
+    relatedpages: Schema.Attribute.Component<'shared.article', true>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Unique;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    whoisthisfor: Schema.Attribute.RichText;
   };
 }
 

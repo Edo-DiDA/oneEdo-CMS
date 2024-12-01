@@ -33,12 +33,21 @@ export interface SharedServicePage extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedText extends Struct.ComponentSchema {
+  collectionName: 'components_shared_texts';
+  info: {
+    displayName: 'Text';
+  };
+  attributes: {};
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.article': SharedArticle;
       'shared.popular-suggestion': SharedPopularSuggestion;
       'shared.service-page': SharedServicePage;
+      'shared.text': SharedText;
     }
   }
 }
