@@ -11,6 +11,6 @@ export default (config, { strapi }: { strapi: Core.Strapi }) => {
 
     await next();
 
-    ctx.set("Cache-Control", "public, max-age=31536000");
+    ctx.set("Cache-Control", "public, max-age=432000");
   };
 };
