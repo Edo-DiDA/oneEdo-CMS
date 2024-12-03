@@ -1,8 +1,13 @@
 {
   "collectionName": "components_shared_texts",
   "info": {
-    "displayName": "Text"
+    "displayName": "Text",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
 }
