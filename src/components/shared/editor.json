@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_editors",
+  "info": {
+    "displayName": "Editor"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

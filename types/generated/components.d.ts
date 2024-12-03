@@ -21,6 +21,16 @@ export interface SharedContributor extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedEditor extends Struct.ComponentSchema {
+  collectionName: 'components_shared_editors';
+  info: {
+    displayName: 'Editor';
+  };
+  attributes: {
+    text: Schema.Attribute.RichText;
+  };
+}
+
 export interface SharedPopularSuggestion extends Struct.ComponentSchema {
   collectionName: 'components_shared_popular_suggestions';
   info: {
@@ -47,6 +57,7 @@ export interface SharedServicePage extends Struct.ComponentSchema {
 export interface SharedText extends Struct.ComponentSchema {
   collectionName: 'components_shared_texts';
   info: {
+    description: '';
     displayName: 'Text';
   };
   attributes: {};
@@ -57,6 +68,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'shared.article': SharedArticle;
       'shared.contributor': SharedContributor;
+      'shared.editor': SharedEditor;
       'shared.popular-suggestion': SharedPopularSuggestion;
       'shared.service-page': SharedServicePage;
       'shared.text': SharedText;

@@ -400,7 +400,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'api::article.article'
     > &
       Schema.Attribute.Private;
-    outline: Schema.Attribute.Component<'shared.text', false>;
+    outline: Schema.Attribute.RichText;
     publishedAt: Schema.Attribute.DateTime;
     relatedpages: Schema.Attribute.Component<'shared.article', true>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Unique;
