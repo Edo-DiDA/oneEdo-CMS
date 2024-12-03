@@ -384,6 +384,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     breadcrumbs: Schema.Attribute.DynamicZone<['shared.service-page']>;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    contributors: Schema.Attribute.Component<'shared.contributor', true>;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

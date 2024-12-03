@@ -28,11 +28,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ]
+      "allowedTypes": ["images", "files", "videos"]
     },
     "category": {
       "type": "relation",
@@ -49,23 +45,26 @@
     },
     "breadcrumbs": {
       "type": "dynamiczone",
-      "components": [
-        "shared.service-page"
-      ]
+      "components": ["shared.service-page"]
     },
     "whoisthisfor": {
       "type": "richtext"
-    },
-    "onthispage": {
-      "displayName": "Text",
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.text"
     },
     "relatedpages": {
       "type": "component",
       "repeatable": true,
       "component": "shared.article"
+    },
+    "onthispage": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.text"
+    },
+    "contributors": {
+      "displayName": "Contributor",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.contributor"
     }
   }
 }
