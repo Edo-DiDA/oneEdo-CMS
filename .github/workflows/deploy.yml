@@ -35,7 +35,7 @@ jobs:
           port: 22
           script: |
             # Navigate to the application directory
-            cd /apps/oneEdo-CRM
+            cd ~/apps/oneEdo-CRM
 
             # Pull the latest changes from the repository
             git pull origin main
