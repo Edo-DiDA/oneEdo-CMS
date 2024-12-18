@@ -6,7 +6,7 @@ module.exports = {
       name: "oneedocms",
       script: "npm",
       args: "start",
-      instances: "max",
+      instances: "4",
       exec_mode: "cluster",
       env: {
         NODE_ENV: process.env.NODE_ENV,
@@ -17,6 +17,8 @@ module.exports = {
         DATABASE_USERNAME: process.env.DATABASE_USERNAME,
         DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
         DATABASE_SSL: process.env.DATABASE_SSL,
+        HOST: process.env.HOST,
+        PORT: process.env.PORT,
       },
     },
   ],
