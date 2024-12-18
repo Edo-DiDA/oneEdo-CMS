@@ -6,7 +6,7 @@ module.exports = {
       name: "oneedocms",
       script: "npm",
       args: "start",
-      instances: "4",
+      instances: "max",
       exec_mode: "cluster",
       env: {
         NODE_ENV: process.env.NODE_ENV,
