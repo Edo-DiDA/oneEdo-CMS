@@ -8,18 +8,8 @@ export default [
         useDefaults: true,
         directives: {
           "connect-src": ["'self'", "https:"],
-          "img-src": [
-            "'self'",
-            "data:",
-            "blob:",
-            "pdoprototypes-edo-prototype-storage1.s3.af-south-1.amazonaws.com",
-          ],
-          "media-src": [
-            "'self'",
-            "data:",
-            "blob:",
-            "pdoprototypes-edo-prototype-storage1.s3.af-south-1.amazonaws.com",
-          ],
+          "img-src": ["'self'", "data:", "blob:"],
+          "media-src": ["'self'", "data:", "blob:"],
           upgradeInsecureRequests: null,
         },
       },

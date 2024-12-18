@@ -1,0 +1,50 @@
+name: Deploy Oneedo
+
+on:
+  push:
+    branches:
+      - datacntr # Trigger deployment on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "23"
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Step 4: Deploy to server using SSH
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v0.1.3
+        with:
+          host: ${{ secrets.SERVER_HOST }} # The server IP
+          username: ${{ secrets.SERVER_USER }} # The username for the server
+          password: ${{ secrets.SERVER_SSH_PASSWORD }} # The password for SSH access
+          port: 22
+          script: |
+            # Navigate to the application directory
+            cd /apps/oneEdo-CRM
+
+            # Pull the latest changes from the repository
+            git pull origin main
+
+            # Install the latest dependencies
+            npm install
+
+            # Build the app
+            npm run build
+
+            # Restart the app using PM2
+            pm2 start ecosystem.config.js
