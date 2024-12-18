@@ -23,6 +23,7 @@ module.exports = {
         API_TOKEN_SALT: process.env.API_TOKEN_SALT,
         ADMIN_JWT_SECRET: process.env.ADMIN_JWT_SECRET,
         TRANSFER_TOKEN_SALT: process.env.TRANSFER_TOKEN_SALT,
+        JWT_SECRET: process.env.JWT_SECRET,
       },
     },
   ],
