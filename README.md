@@ -1,61 +1,84 @@
-# 🚀 Getting started with Strapi
+# oneEdo CMS Repository
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+This repository hosts the CMS software used to feed content for Oneedo.
 
-### `develop`
+## Setting Up the Project
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+1. **Clone the Repository**
 
-```
-npm run develop
-# or
-yarn develop
-```
+   ```bash
+   git clone git@github.com:Edo-DiDA/oneEdo-CMS.git
+   cd oneEdo-CMS
+   ```
 
-### `start`
+2. **Install Dependencies**
+   Install the required Node.js dependencies:
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+   ```bash
+   npm install
+   ```
 
-```
-npm run start
-# or
-yarn start
-```
+   or, if using Yarn:
 
-### `build`
+   ```bash
+   yarn install
+   ```
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+3. **Create Environment Variables**
+   Create a `.env` file in the root directory and configure the following variables:
 
-```
-npm run build
-# or
-yarn build
-```
+   ```env
+   NODE_ENV=development
+   DATABASE_CLIENT=your_database_client (e.g., postgres, mysql, sqlite)
+   DATABASE_HOST=your_database_host
+   DATABASE_PORT=your_database_port
+   DATABASE_NAME=your_database_name
+   DATABASE_USERNAME=your_database_username
+   DATABASE_PASSWORD=your_database_password
+   DATABASE_SSL=your_database_ssl (true or false)
+   HOST=your_application_host (e.g., 0.0.0.0)
+   PORT=your_application_port (e.g., 1337)
+   APP_KEYS=your_application_keys (comma-separated, e.g., key1,key2,key3,key4)
+   API_TOKEN_SALT=your_api_token_salt
+   ADMIN_JWT_SECRET=your_admin_jwt_secret
+   TRANSFER_TOKEN_SALT=your_transfer_token_salt
+   JWT_SECRET=your_jwt_secret
+   ```
 
-## ⚙️ Deployment
+   Replace placeholders (`your_*`) with your actual configuration values.
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+## Running the Application
 
-```
-yarn strapi deploy
-```
+1. **Start the Development Server**
 
-## 📚 Learn more
+   ```bash
+   npm run develop
+   ```
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+   or, if using Yarn:
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+   ```bash
+   yarn develop
+   ```
 
-## ✨ Community
+   This will start the application in development mode.
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+2. **Start the Production Server**
+   After building the project, start the production server:
 
----
+   ```bash
+   npm run start
+   ```
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+   or, if using Yarn:
+
+   ```bash
+   yarn start
+   ```
+
+## Notes
+
+- Keep the `.env` file secure and do not commit it to version control.
+- Regularly update dependencies to ensure compatibility and security.
+- Refer to the [Strapi Documentation](https://docs.strapi.io/) for additional help and advanced configurations.
+
